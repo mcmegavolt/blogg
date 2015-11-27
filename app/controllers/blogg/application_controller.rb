@@ -1,5 +1,5 @@
 module Blogg
   class ApplicationController < ActionController::Base
-    layout 'application'
+    layout Blogg.layout
   end
 end
