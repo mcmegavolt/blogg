@@ -1,24 +1,22 @@
 # Blogg
 
-```
-This gem not working yet! I'm in progress, you are welcome to contribute`
-```
+> This gem not working yet! I'm in progress now, you are welcome to contribute
 
-Very simple blog for your rails application
+About gem: Very simple blog for your rails application
 
-### Add to your Gemfile:
+**Add to your Gemfile:**
 
 ```ruby
 gem 'blogg'
 ```
 
-### create 'config/initializers/blogg.rb' and set layaout:
+**create 'config/initializers/blogg.rb' and set layaout:**
 
 ```ruby
 Blogg.layout = 'application'
 ```
 
-### Copy migrations
+**Copy migrations**
 
 ```ruby
 rake blogg:install:migrations
