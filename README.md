@@ -10,7 +10,7 @@ About gem: Very simple blog for your rails application
 gem 'blogg'
 ```
 
-**create 'config/initializers/blogg.rb' and set layaout:**
+**create 'config/initializers/blogg.rb' and set layout:**
 
 ```ruby
 Blogg.layout = 'application'
