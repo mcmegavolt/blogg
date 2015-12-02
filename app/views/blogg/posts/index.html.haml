@@ -1,0 +1,26 @@
+= render 'blogg/shared/header', post: nil
+.container
+  .row
+    .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+      = render 'blogg/shared/flash_messages'
+      - collection.each do |post|
+        .post-preview
+          = link_to post do
+            %h2.post-title
+              = post.title
+            %h3.post-subtitle
+              = post.subtitle
+          %p.post-meta
+            = render 'blogg/shared/posted_by', post: post
+          - if can? :manage, post
+            %p.post-meta
+              %i.fa.fa-edit
+              = link_to 'Edit', edit_post_path(post)
+              %i.fa.fa-trash-o
+              = link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }
+              %i.fa.fa-file-o
+              = link_to 'New Post', new_post_path
+        %hr/
+      %ul.pager
+        %li.next
+          %a{:href => "#"} Older Posts →

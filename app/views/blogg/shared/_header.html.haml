@@ -1,0 +1,11 @@
+%header.intro-header{:style => "background-image: url('#{post ? post.image_url : asset_path('blogg/fallback/default-image-header.jpg')}')"}
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+        %div{class: post ? 'post-heading' : 'site-heading'}
+          %h1= post ? post.title : Blogg.blog_title
+          - unless post
+            %hr.small
+          %span.subheading= post ? post.title : Blogg.blog_description
+          - if post
+            %span.meta= render 'blogg/shared/posted_by', post: post

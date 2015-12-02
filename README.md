@@ -1,8 +1,8 @@
 # Blogg
 
-> This gem not working yet! I'm in progress now, you are welcome to contribute
+> This gem not ready yet! I'm in progress now, you are welcome to contribute
 
-About gem: Very simple blog for your rails application
+About gem: **Simple design ready blog for your rails application**
 
 **Add to your Gemfile:**
 
@@ -16,14 +16,21 @@ gem 'blogg'
 Blogg.layout = 'application'
 ```
 
-**Copy migrations**
+**Copy and migrations**
 
 ```ruby
 rake blogg:install:migrations
-```
 
-and run migration
-
-```ruby
 rake db:migrate
 ```
+
+## TODO:
+
+* internationalization
+* static pages (about, contacts, etc.)
+* friendly post ids
+* blog settings
+* auto seo optimization
+  * meta tags for facebook, google, twitter, etc.
+  * title, description
+* disqus comments

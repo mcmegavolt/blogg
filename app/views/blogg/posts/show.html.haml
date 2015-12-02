@@ -1,0 +1,14 @@
+= render 'blogg/shared/header', post: resource
+.container
+  .row
+    .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+      = render 'blogg/shared/flash_messages'
+      %p= resource.text
+      .panel.panel-default
+        .panel-body
+          - if can? :manage, resource
+            %i.fa.fa-edit
+            = link_to 'Edit', edit_post_path(resource)
+            |
+          %i.fa.fa-arrow-left
+          = link_to 'Home', root_path
