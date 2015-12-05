@@ -3,8 +3,12 @@ class UserAbility
 
   def initialize(user)
 
-    if user
+    user ||= User.new
+
+    unless user.new_record?
       can :manage, Blogg::Post#, :author_id => user.id
+    else
+      can :read, Blogg::Post
     end
 
     # Define abilities for the passed in user here. For example:

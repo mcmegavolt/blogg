@@ -26,6 +26,10 @@ Gem::Specification.new do |s|
   s.add_dependency "haml"
   s.add_dependency "font-awesome-rails"
   s.add_dependency "carrierwave"
+  s.add_dependency "friendly_id", "~> 4.0.10"
+  s.add_dependency "babosa"
+  s.add_dependency "redcarpet"
+  s.add_dependency "rouge"
 
   s.add_development_dependency "sqlite3", "~> 0"
 end

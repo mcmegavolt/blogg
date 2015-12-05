@@ -1,0 +1,21 @@
+ru:
+  blogg:
+    navigation:
+      home: "Главная"
+    posts:
+      posted_by: "Опубликовано"
+      actions:
+        edit: "Изменить"
+        new: "Новый пост"
+        delete: "Удалить"
+        back: "На главную"
+  unauthorized:
+    manage:
+      all: "Not authorized to %{action} %{subject}."
+  errors:
+    messages:
+      carrierwave_processing_error: "Cannot resize image."
+      carrierwave_integrity_error: "Not an image."
+      carrierwave_download_error: "Couldn't download image."
+      extension_white_list_error: "You are not allowed to upload %{extension} files, allowed types: %{allowed_types}"
+      extension_black_list_error: "You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}"

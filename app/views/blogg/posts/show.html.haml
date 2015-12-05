@@ -3,12 +3,26 @@
   .row
     .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
       = render 'blogg/shared/flash_messages'
-      %p= resource.text
-      .panel.panel-default
-        .panel-body
-          - if can? :manage, resource
+      %p= markdown resource.text
+      - if can? :manage, resource
+        %p.post-actions.text-right
+          = link_to edit_post_path(resource) do
             %i.fa.fa-edit
-            = link_to 'Edit', edit_post_path(resource)
-            |
-          %i.fa.fa-arrow-left
-          = link_to 'Home', root_path
+            = t('blogg.posts.actions.edit')
+      %ul.pager
+        - if resource.prev
+          %li.prev
+            = link_to resource.prev, title: resource.prev.title do
+              %i.fa.fa-angle-double-left
+              = resource.prev.title.truncate(25)
+        - if resource.next
+          %li.next
+            = link_to resource.next, title: resource.next.title do
+              = resource.next.title.truncate(25)
+              %i.fa.fa-angle-double-right
+      %hr
+      .text-center
+        = link_to root_path, title: t('blogg.posts.actions.back') do
+          %span.fa-stack.fa-lg
+            %i.fa.fa-circle.fa-stack-2x
+            %i.fa.fa-home.fa-stack-1x.fa-inverse

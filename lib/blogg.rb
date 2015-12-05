@@ -1,8 +1,12 @@
 require "blogg/engine"
 
 module Blogg
+
+  mattr_accessor :user_class
+  @@user_class = "User"
+
   mattr_accessor :brand_text
-  @@brand_text = "The Blogg"
+  @@brand_text = "Blogg"
 
   mattr_accessor :blog_title
   @@blog_title = "The Blogg"
@@ -12,6 +16,9 @@ module Blogg
 
   mattr_accessor :footer_text
   @@footer_text = "Copyright © The Blogg #{Date.today.year}"
+
+  mattr_accessor :show_social
+  @@show_social = false
 
   def self.setup
     yield self

@@ -10,10 +10,6 @@
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         %li
-          %a{href: "#"} Home
-        %li
-          %a{href: "#"} About
-        %li
-          %a{href: "#"} Sample Post
-        %li
-          %a{href: "#"} Contact
+          = link_to t('blogg.navigation.home'), root_url
+        -# %li
+        -#   %a{href: "#"} About

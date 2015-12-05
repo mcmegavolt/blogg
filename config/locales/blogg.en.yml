@@ -1,4 +1,14 @@
 en:
+  blogg:
+    navigation:
+      home: "Home"
+    posts:
+      posted_by: "Posted by"
+      actions:
+        edit: "Edit"
+        new: "New Post"
+        delete: "Delete"
+        back: "Back" 
   unauthorized:
     manage:
       all: "Not authorized to %{action} %{subject}."
