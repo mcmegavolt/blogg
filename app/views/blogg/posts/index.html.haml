@@ -12,6 +12,10 @@
               = post.subtitle
           %p.post-meta
             = render 'blogg/shared/posted_by', post: post
+            - if Blogg.disqus
+              |
+              %i.fa.fa-comments-o.fa-fw.text-small
+              = link_to 'Comments', post_url(post, anchor: "disqus_thread"), "data-disqus-identifier": "post_#{post.created_at.to_i}"
           - if can? :manage, post
             %p.post-meta
               %i.fa.fa-edit

@@ -23,5 +23,11 @@ module Blogg
       create!(:notice => "Blog post was successfully created.")
     end
 
+    protected
+
+    def collection
+      end_of_association_chain.articles
+    end
+
   end
 end

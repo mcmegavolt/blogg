@@ -6,10 +6,10 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{href: root_path}= Blogg.brand_text
+      %a.navbar-brand{href: Blogg.brand_url.present? ? Blogg.brand_url : root_path}= Blogg.brand_text
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         %li
-          = link_to t('blogg.navigation.home'), root_url
-        -# %li
-        -#   %a{href: "#"} About
+          = link_to t('blogg.navigation.home'), root_path
+        - Blogg::Post.static.each do |static_page|
+          %li= link_to static_page.title, static_page

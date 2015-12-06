@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Alexander Ponomarenko"]
   s.email       = ["mcmegavolt@gmail.com"]
   s.homepage    = "https://github.com/mcmegavolt/blogg"
-  s.summary     = "Very simple blog for rails app"
-  s.description = "Please, note, this gem NOT WORKING yet! Blogg is very simple blogging system for your rails application"
+  s.summary     = "Design ready SEO optimized customizable blog engine"
+  s.description = "Design ready SEO optimized customizable blog engine for your rails application"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
   s.add_dependency "babosa"
   s.add_dependency "redcarpet"
   s.add_dependency "rouge"
+  s.add_dependency "meta-tags"
 
   s.add_development_dependency "sqlite3", "~> 0"
 end

@@ -11,7 +11,7 @@
     %meta{:charset => "utf-8"}
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     = csrf_meta_tags
-    = display_meta_tags :site => SiteSettings["seo.site_name_#{I18n.locale}"], :reverse => true
+    = display_meta_tags site: Blogg.blog_title, description: Blogg.blog_description, reverse: true
 
     = stylesheet_link_tag 'blogg/application'
     - if Rails.env.production?
@@ -30,3 +30,5 @@
     = yield
     %hr/
     = render 'blogg/shared/footer'
+    - if Blogg.disqus
+      %script#dsq-count-scr{ async: "", src: "//#{Blogg.disqus_url}/count.js"}

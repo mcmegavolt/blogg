@@ -1,3 +1,10 @@
+- set_meta_tags title: resource.title,
+                og: { title: resource.title, type: 'article', url: post_url(resource), image: request.protocol + request.host_with_port + resource.image.url }
+
+- if Blogg.google_plus_profile
+  - set_meta_tags author: Blogg.google_plus_profile, publisher: Blogg.google_plus_profile
+
+
 = render 'blogg/shared/header', post: resource
 .container
   .row
@@ -9,20 +16,23 @@
           = link_to edit_post_path(resource) do
             %i.fa.fa-edit
             = t('blogg.posts.actions.edit')
-      %ul.pager
-        - if resource.prev
-          %li.prev
-            = link_to resource.prev, title: resource.prev.title do
-              %i.fa.fa-angle-double-left
-              = resource.prev.title.truncate(25)
-        - if resource.next
-          %li.next
-            = link_to resource.next, title: resource.next.title do
-              = resource.next.title.truncate(25)
-              %i.fa.fa-angle-double-right
+      - if resource.is_article?
+        %ul.pager
+          - if resource.prev
+            %li.prev
+              = link_to resource.prev, title: resource.prev.title do
+                %i.fa.fa-angle-double-left
+                = resource.prev.title.truncate(25)
+          - if resource.next
+            %li.next
+              = link_to resource.next, title: resource.next.title do
+                = resource.next.title.truncate(25)
+                %i.fa.fa-angle-double-right
       %hr
       .text-center
         = link_to root_path, title: t('blogg.posts.actions.back') do
           %span.fa-stack.fa-lg
             %i.fa.fa-circle.fa-stack-2x
             %i.fa.fa-home.fa-stack-1x.fa-inverse
+
+      = render 'blogg/shared/disqus_thread', post: resource if Blogg.disqus

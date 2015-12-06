@@ -20,7 +20,6 @@
       = link_to 'https://daringfireball.net/projects/markdown/basics', target: '_blank' do
         Markdown is supported
         %i.fa.fa-info-circle
-
   .form-group
     = f.label :image
     .row
@@ -29,11 +28,17 @@
         = f.file_field :image
         = f.hidden_field :image_cache
       .col-md-6
-        = image_tag(@post.image_url, class: 'img-responsive') if @post.image?
-        .checkbox
-          %label
-            = f.check_box :remove_image
-            Remove existing image
+        - if @post.image?
+          = image_tag(@post.image_url, class: 'img-responsive')
+          .checkbox
+            %label
+              = f.check_box :remove_image
+              Remove existing image
+  .form-group
+    .checkbox
+      %label
+        = f.check_box :static
+        Static page
     %hr
 
   = f.submit 'Save changes', class: 'btn btn-success'

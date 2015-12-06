@@ -6,6 +6,6 @@
           %h1= post ? post.title : Blogg.blog_title
           - unless post
             %hr.small
-          %span.subheading= post ? post.title : Blogg.blog_description
-          - if post
+          %span.subheading= post ? post.subtitle : Blogg.blog_description
+          - if post && !post.is_static?
             %span.meta= render 'blogg/shared/posted_by', post: post

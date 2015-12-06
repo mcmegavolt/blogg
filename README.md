@@ -1,16 +1,20 @@
 # The Blogg
 
-> This gem not ready yet! I'm in progress now, you are welcome to contribute
+## Design ready SEO optimized customizable blog engine for your rails application
 
-About gem: **Simple design ready blog for your rails application**
+> Tested on Rails 3.2 (Rails 4 version is coming ~~soon~~)
 
-**Add to your Gemfile:**
+You know how to make this gem better? Want to improve some feature or add a new one? Found an issue? Feel free to contribute or create an issue. You are welcome!
+
+---
+
+### Add to your Gemfile
 
 ```ruby
 gem 'blogg'
 ```
 
-**create 'config/initializers/blogg.rb' and set class with devise authorization and other settings:**
+### Create ```config/initializers/blogg.rb``` and set class with devise authorization and other settings:
 
 ```ruby
 require 'blogg'
@@ -21,6 +25,9 @@ Blogg.setup do |config|
   # It shows at the top navbar
   # config.brand_text = "Blogg"
 
+  # Brand link url. default is root of mounted blog
+  # config.brand_url = "/mylink"
+
   # Your awesome blog name
   # config.blog_title = "The Blogg"
 
@@ -30,13 +37,25 @@ Blogg.setup do |config|
   # Footer text, can contain html and #{ruby code}
   # config.footer_text = "Copyright © My Blog #{Date.today.year}""
 
-  # Showing social icon in footer, false by default
+  # Showing social icons in footer, false by default
   # Icons have a blank link and not customizable yet
   # config.show_social = true
+
+  # Social icons set. You can use any key names here listed on http://fontawesome.io/icons/#brand
+  # config.social_links = {
+  #   facebook: '#url',
+  #   github: '#url',
+  #   twitter: '#url'
+  # }
+
+  # Enable disqus comments for your blog posts and set your Disqus Url, false by default
+  # config.disqus = true
+  # config.disqus_url = 'myblog.disqus.com'
+
 end
 ```
 
-You need to define **to_s** method in class set in ```config.user_class``` to return correct author name
+### Define ```to_s``` method in class set in config.user_class to return correct author name
 ```ruby
 def to_s
   name
@@ -45,7 +64,7 @@ def to_s
 end
 ```
 
-**Copy and migrations**
+### Install migrations
 
 ```ruby
 rake blogg:install:migrations
@@ -53,21 +72,21 @@ rake blogg:install:migrations
 rake db:migrate
 ```
 
-English, Russian and Ukrainian localizations are supported (partially for Russian and Ukrainian, still in progress)
+### Other staff out of the box
 
-Blogg use https://github.com/norman/friendly_id for generating pretty urls
+- Design ready. With heading image and autohiding top navbar
+- https://github.com/norman/friendly_id for generating pretty urls
+- Markdown for post body text (no WYSWYG editor)
+- English localization are supported. Russian and Ukrainian in progress
+- SEO optimized. Auto generating meta tags (OpenGraph, publisher, author), page title and description
+- "Static page" option to handle static pages, eg. "About", "Contacts"  
+- Disqus comments (option)
 
-## TODO:
+### TODO:
 
 * tests
-* internationalization (in progress)
+* auto seo optimization (improving)
+* Russian and Ukrainian localization (in progress)
+* social sharing
 * pagination
 * frontend blog settings
-* static pages (about, contacts, etc.)
-* auto seo optimization
-  * meta tags for facebook, google, twitter, etc.
-  * title, description
-* disqus comments (optionable)
-* socials link in the footer (facebook, twitter...)
-* social sharing for posts
-* markdown editor for post body text
