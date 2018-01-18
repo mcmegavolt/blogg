@@ -25,7 +25,7 @@ Blogg.setup do |config|
   # It shows at the top navbar
   # config.brand_text = "Blogg"
 
-  # Brand link url. default is root of mounted blog
+  # Brand link url. Default is root of main application
   # config.brand_url = "/mylink"
 
   # Your awesome blog name
@@ -36,6 +36,9 @@ Blogg.setup do |config|
 
   # Footer text, can contain html and #{ruby code}
   # config.footer_text = "Copyright © My Blog #{Date.today.year}""
+
+  # Show the author (user) in posts. Default is true
+  # config.show_author = true
 
   # Showing social icons in footer, false by default
   # Icons have a blank link and not customizable yet

@@ -18,7 +18,6 @@ Gem::Specification.new do |s|
   s.test_files = Dir['test/**/*']
 
   s.add_runtime_dependency 'rails', '~> 3.2', '>= 3.2.13'
-  s.add_dependency 'babosa'
   s.add_dependency 'cancancan', '~> 1.10'
   s.add_dependency 'carrierwave'
   s.add_dependency 'devise'
