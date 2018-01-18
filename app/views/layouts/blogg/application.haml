@@ -11,7 +11,9 @@
     %meta{:charset => "utf-8"}
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     = csrf_meta_tags
-    = display_meta_tags site: Blogg.blog_title, description: Blogg.blog_description, reverse: true
+    = display_meta_tags site: t('blogg.settings.blog_title', default: Blogg.blog_title),
+                        description: t('blogg.settings.blog_description', default: Blogg.blog_description),
+                        reverse: true
 
     = stylesheet_link_tag 'blogg/application'
     - if Rails.env.production?

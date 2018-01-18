@@ -8,7 +8,7 @@ en:
         edit: "Edit"
         new: "New Post"
         delete: "Delete"
-        back: "Back" 
+        back: "Back"
   unauthorized:
     manage:
       all: "Not authorized to %{action} %{subject}."

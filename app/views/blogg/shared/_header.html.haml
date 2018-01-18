@@ -3,9 +3,10 @@
     .row
       .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
         %div{class: post ? 'post-heading' : 'site-heading'}
-          %h1= post ? post.title : Blogg.blog_title
+          %h1= post ? post.title : t('blogg.settings.blog_title', default: Blogg.blog_title)
           - unless post
             %hr.small
-          %span.subheading= post ? post.subtitle : Blogg.blog_description
-          - if post && !post.is_static?
+          %span.subheading
+            = post ? post.subtitle : t('blogg.settings.blog_description', default: Blogg.blog_description)
+          - if post && !post.static?
             %span.meta= render 'blogg/shared/posted_by', post: post

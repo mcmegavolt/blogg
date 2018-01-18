@@ -1,26 +1,27 @@
-require_dependency "blogg/application_controller"
+require_dependency 'blogg/application_controller'
 
 module Blogg
+  #
   class PostsController < ApplicationController
-
     respond_to :html
+
     inherit_resources
 
     load_and_authorize_resource
-    skip_authorize_resource :only => [:index, :show]
+    skip_authorize_resource only: %i[index show]
 
     def destroy
-      destroy!(:notice => "Blog post was successfully deleted.")
+      destroy!(notice: 'Blog post was successfully deleted.')
     end
 
     def update
-      update!(:notice => "Blog post was successfully updated.")
+      update!(notice: 'Blog post was successfully updated.')
     end
 
     def create
       @post = Post.new(params[:post])
       @post.author = current_user
-      create!(:notice => "Blog post was successfully created.")
+      create!(notice: 'Blog post was successfully created.')
     end
 
     protected
@@ -28,6 +29,5 @@ module Blogg
     def collection
       end_of_association_chain.articles
     end
-
   end
 end

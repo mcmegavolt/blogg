@@ -2,13 +2,12 @@ class UserAbility
   include CanCan::Ability
 
   def initialize(user)
-
     user ||= User.new
 
-    unless user.new_record?
-      can :manage, Blogg::Post#, :author_id => user.id
-    else
+    if user.new_record?
       can :read, Blogg::Post
+    else
+      can :manage, Blogg::Post # , :author_id => user.id
     end
 
     # Define abilities for the passed in user here. For example:

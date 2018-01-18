@@ -4,13 +4,12 @@ require 'rouge/plugins/redcarpet'
 
 module Blogg
   module ApplicationHelper
-
     class HTML < Redcarpet::Render::HTML
       include Rouge::Plugins::Redcarpet
-      def rouge_formatter(opts={})
-        opts ={
+      def rouge_formatter(opts = {})
+        opts = {
           line_numbers: true,
-          wrap: true,
+          wrap: true
         }
         Rouge::Formatters::HTML.new(opts)
       end
@@ -28,6 +27,5 @@ module Blogg
       }
       Redcarpet::Markdown.new(renderer, options).render(text).html_safe
     end
-
   end
 end

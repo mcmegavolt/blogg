@@ -1,5 +1,10 @@
 ru:
   blogg:
+    settings:
+      brand_text: "Блог"
+      blog_title: "Блог"
+      blog_description: "Простой блог в этом сложном мире"
+      footer_text: "Copyright © Блог %{year}"
     navigation:
       home: "Главная"
     posts:

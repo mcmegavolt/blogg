@@ -1,1 +1,5 @@
-#{t('blogg.posts.posted_by')} #{post.author} | #{l(post.author.created_at.to_date, format: :long)}
+- if Blogg.show_author
+  = t('blogg.posts.posted_by')
+  = post.author
+  |
+= l(post.created_at.to_date, format: :long)

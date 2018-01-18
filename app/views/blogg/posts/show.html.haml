@@ -16,7 +16,7 @@
           = link_to edit_post_path(resource) do
             %i.fa.fa-edit
             = t('blogg.posts.actions.edit')
-      - if resource.is_article?
+      - if resource.article?
         %ul.pager
           - if resource.prev
             %li.prev

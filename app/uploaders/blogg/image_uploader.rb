@@ -1,5 +1,4 @@
 class Blogg::ImageUploader < CarrierWave::Uploader::Base
-
   include CarrierWave::MiniMagick
 
   include Sprockets::Helpers::RailsHelper
@@ -14,13 +13,12 @@ class Blogg::ImageUploader < CarrierWave::Uploader::Base
   end
 
   def extension_white_list
-    %w(jpg jpeg png)
+    %w[jpg jpeg png]
   end
 
   def default_url
-    ActionController::Base.helpers.asset_path("blogg/fallback/" + [version_name, "default-image-header.jpg"].compact.join('_'))
+    ActionController::Base.helpers.asset_path('blogg/fallback/' + [version_name, 'default-image-header.jpg'].compact.join('_'))
   end
 
-  process :resize_to_fit => [1000, 600]
-
+  process resize_to_fit: [1000, 600]
 end

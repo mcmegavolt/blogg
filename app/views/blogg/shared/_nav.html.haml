@@ -6,7 +6,8 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{href: Blogg.brand_url.present? ? Blogg.brand_url : root_path}= Blogg.brand_text
+      %a.navbar-brand{href: Blogg.brand_url.present? ? Blogg.brand_url : Rails.application.routes.url_helpers.root_path}
+        = t('blogg.settings.brand_text', default: Blogg.brand_text)
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         %li

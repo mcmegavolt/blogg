@@ -3,4 +3,5 @@
     .row
       .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
         = render 'blogg/shared/social' if Blogg.show_social
-        %p.copyright.text-muted= Blogg.footer_text.html_safe
+        %p.copyright.text-muted
+          = t('blogg.settings.footer_text', year: Date.today.year, default: Blogg.footer_text.html_safe)

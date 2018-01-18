@@ -3,7 +3,7 @@
   .row
     .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
       = render 'blogg/shared/flash_messages'
-      - collection.each do |post|
+      - collection.order('created_at DESC').each do |post|
         .post-preview
           = link_to post do
             %h2.post-title
